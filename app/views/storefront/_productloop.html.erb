@@ -27,9 +27,15 @@
 		        <p><%= number_to_currency product.price %></p>
 		        <p id="descr<%= product.id %>"><%= product.description[0..50] %><span id="expand_descr<%= product.id %>">...</span></p>
 		      </div>
-		      <div class="modal-footer">
-
-		      </div>
+		      <% if product.quantity > 0 %>
+			      <div class="modal-footer">
+			      	<%= form_tag add_to_cart_path do %>
+			      		<%= hidden_field_tag :product_id, product.id %>
+			      		<%= number_field_tag :quantity, nil, placeholder: "How Many?", min: 1 %>
+			      		<%= submit_tag "Add to Cart", class: "btn btn-primary" %>
+			      	<% end %>
+			      </div>
+			    <% end %>
 		    </div>
 		  </div>
 		</div>
