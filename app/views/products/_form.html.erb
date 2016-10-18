@@ -11,34 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
+  <div class="form-group">
+    <%= f.text_field :name, placeholder: "Item Name", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
+    <%= f.text_field :price, placeholder: "Price (do not include dollar sign)", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.number_field :quantity, placeholder: "Quantity In Stock", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :brand %>
-    <%= f.text_field :brand %>
+    <%= f.text_area :description, placeholder: "Product Description", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :rating %>
-    <%= f.number_field :rating %>
+    <%= f.text_field :brand, placeholder: "Brand", class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -51,6 +41,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-info" %>
   </div>
 <% end %>
