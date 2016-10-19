@@ -22,10 +22,10 @@ class CartController < ApplicationController
 
   end
 
-
-
   def view_order
   	@line_items = LineItem.all
+
+  	@suggestion = Product.find(rand(1..(Product.all.length - 1)))
   end
 
   def checkout
@@ -53,13 +53,14 @@ class CartController < ApplicationController
 	  end
   end
 
+  def edit_line_item
+  	LineItem.find(params[:id]).update(quantity: params[:quantity])
+  	redirect_to :back
+  end
 
-
-
-
-
-
-
-
+  def delete_line_item
+  	LineItem.find(params[:id]).destroy
+  	redirect_to :back
+  end
 
 end

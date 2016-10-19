@@ -1,0 +1,20 @@
+<h1>Our Current Users</h1>
+
+
+<div>
+	<h3>Employees</h3>
+	<% @employees.each do |employee| %>
+		<p>
+			<%= employee.name %> | <%= employee.email %> <%= link_to "Remove Admin Abilities?", remove_admin_path(id: employee.id), class: "btn btn-danger" %>
+		</p>
+	<% end %>
+</div>
+
+<div>
+	<h3>Customers</h3>
+	<% @customers.each do |customer| %>
+		<p>
+			<%= customer.name %> | <%= customer.email %> <%= link_to "Add Admin Abilities?", add_admin_path(id: customer.id), class: "btn btn-success" %>
+		</p>
+	<% end %>
+</div>

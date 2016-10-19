@@ -10,6 +10,26 @@
       </div>
 
       <div class="form-group">
+        <%= f.text_field :name, placeholder: "Your Name", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :street_address , placeholder: "Street Address", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :city, placeholder: "City", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.select(:state, @states.collect { |state| [state] }, { include_blank: "State" }, class: "form-control") %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :zip, placeholder: "Zip Code", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
         <%= f.password_field :password, placeholder: "Password (#{@minimum_password_length} characters minimum)", class: "form-control", autocomplete: "off" %>
       </div>
 
