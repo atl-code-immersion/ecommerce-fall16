@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :brands, :categories, :states
+  helper_method :current_order
 
   def brands
   	@brands = Product.pluck(:brand).sort.uniq!
@@ -9,6 +10,14 @@ class ApplicationController < ActionController::Base
 
   def categories
   	@categories = Category.order(:name)
+  end
+
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
   end
 
   def states

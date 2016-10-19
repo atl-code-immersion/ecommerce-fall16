@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'checkout' => 'cart#checkout'
 
+  post 'order_complete' => 'cart#order_complete'
+
   devise_for :users
   
   root 'storefront#all_items'
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
   get 'add_admin' => 'administration#add_admin'
 
   get 'remove_admin' => 'administration#remove_admin'
+
+  get 'invoices' => 'administration#invoices'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
