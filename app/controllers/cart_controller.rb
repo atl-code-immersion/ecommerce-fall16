@@ -55,6 +55,8 @@ class CartController < ApplicationController
 
 	  	@order.line_items.destroy_all
 
+	  	session[:order_id] = nil
+
 	  end
   end
 
